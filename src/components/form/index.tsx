@@ -1,6 +1,8 @@
 import { useForm } from 'react-hook-form'
-import { FormType } from '../../types/forms.types'
+import type { FormType } from '../../types/forms.types'
 import FormField from '../form-field'
+import { UserSchema } from '../../types/schema'
+import { zodResolver } from '@hookform/resolvers/zod'
 
 const Form = () => {
   const {
@@ -8,7 +10,7 @@ const Form = () => {
     handleSubmit,
     formState: { errors },
     // setError,
-  } = useForm<FormType>()
+  } = useForm<FormType>({ resolver: zodResolver(UserSchema) })
 
   const onSubmit = (data: FormType) => {
     console.log(data)
