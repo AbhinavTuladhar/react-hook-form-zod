@@ -49,9 +49,20 @@ const Form = () => {
         register={register}
         error={errors.phoneNumber}
       />
+      <FormField
+        placeholder="Password"
+        name="password"
+        register={register}
+        error={errors.password}
+      />
+      <FormField
+        placeholder="Confirm password"
+        name="confirmPassword"
+        register={register}
+        error={errors.confirmPassword}
+      />
       <button className="bg-blue-500 w-fit rounded-md px-8 py-2 mt-2 self-center duration-500 hover:bg-blue-400">
-        {' '}
-        Submit{' '}
+        Submit
       </button>
     </form>
   )
