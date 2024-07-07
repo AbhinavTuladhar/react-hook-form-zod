@@ -7,7 +7,7 @@ const FormField: FC<FormFieldProps> = ({ error, name, register, ...props }) => {
       <input
         {...props}
         {...register(name)}
-        className="border-b border-blue-400 px-4"
+        className="border-b border-blue-400 text-white focus:outline-none bg-transparent w-full px-1 py-1"
       />
       {error && <span> {error.message} </span>}
     </>
