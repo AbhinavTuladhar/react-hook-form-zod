@@ -9,17 +9,20 @@ const Form = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
     // setError,
   } = useForm<FormType>({ resolver: zodResolver(UserSchema) })
 
   const onSubmit = (data: FormType) => {
     console.log(data)
+    alert('Data submitted!')
+    reset()
   }
 
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="grid gap-y-2 place-items-center"
+      className="grid gap-y-0 place-items-center"
     >
       <FormField
         placeholder="Name"
@@ -52,12 +55,14 @@ const Form = () => {
         error={errors.phoneNumber}
       />
       <FormField
+        type="password"
         placeholder="Password"
         name="password"
         register={register}
         error={errors.password}
       />
       <FormField
+        type="password"
         placeholder="Confirm password"
         name="confirmPassword"
         register={register}

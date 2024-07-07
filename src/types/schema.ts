@@ -3,7 +3,7 @@ import { FormType } from './forms.types'
 
 export const UserSchema: ZodType<FormType> = z
   .object({
-    name: z.string({ required_error: 'This field is required.' }),
+    name: z.string().min(1, { message: 'Name is required' }),
     email: z.string({ required_error: 'This field is required.' }).email(),
     country: z.string({ required_error: 'This field is required.' }),
     city: z.string({ required_error: 'This field is required.' }),
